@@ -107,9 +107,11 @@ I implemented this step inthe 7th code cell.  Here is an example of my result on
 
 Here's a [link to my video result](https://drive.google.com/file/d/0B8qitkbIZglGUVN1SXc1RnY5Nkk/view?usp=sharing). 
 
-###2. Implementation details of the tracking
+####2. Implementation details of the tracking
+
 
 The lane tracking is implemented in the 8th code cell of the notebook. For the first frame or any frame that the previous frame fails to detect lane lines, the class `LaneLine` utilizes the method describe above to detect the lane lines. If lane lines are found in the previous frame, the current frame will utilize the previous lane finding results to find lane line pixels in the warped binary images. If both the left and right lanes are correctly found and the current lane curvature is close to the previous lane curvature (the difference is smaller than 0.8), the current lane estimation will be remained. Otherwise, the previous lane fitting results will be used and the current ones are discarded(in `LaneLine::validate_lane_fitting`).
+
 ---
 
 ###Discussion
